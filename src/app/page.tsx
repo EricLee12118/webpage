@@ -22,7 +22,7 @@ export default function Home() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           <div className="space-y-6">
             <Introduction />
             <TeamMembers />
@@ -34,7 +34,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md p-6 flex flex-col">
+          <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold text-blue-600 mb-6">
               Project Timeline
             </h2>
