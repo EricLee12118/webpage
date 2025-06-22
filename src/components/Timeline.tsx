@@ -2,7 +2,27 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const timelineData = [
+// 定义类型
+interface TimelineItem {
+  text: string;
+  description: string;
+}
+
+interface ContentSection {
+  title: string;
+  items: TimelineItem[];
+}
+
+interface PhaseData {
+  phase: string;
+  date: string;
+  color: string;
+  icon: string;
+  content: ContentSection[];
+}
+
+// timelineData 的类型标注
+const timelineData: PhaseData[] = [
   {
     phase: "Project Framework and Game Design",
     date: "2024.3.1 - 2024.3.15",
@@ -352,16 +372,15 @@ const timelineData = [
 ];
 
 const Timeline = () => {
-  const [expandedPhase, setExpandedPhase] = useState(null);
-  const [expandedTitle, setExpandedTitle] = useState(null);
+  // 修正 useState 的类型定义
+  const [expandedPhase, setExpandedPhase] = useState<number | null>(null);
+  const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
 
   return (
     <div className="max-w-7xl mx-auto p-6">      
       <div className="relative">
-        {/* 时间轴线 */}
         <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-200" />
 
-        {/* 阶段卡片 */}
         {timelineData.map((phase, phaseIndex) => (
           <motion.div 
             key={phaseIndex} 
@@ -370,12 +389,10 @@ const Timeline = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: phaseIndex * 0.2 }}
           >
-            {/* 阶段标题卡片 */}
             <div 
               className="relative flex items-center cursor-pointer group"
               onClick={() => setExpandedPhase(expandedPhase === phaseIndex ? null : phaseIndex)}
             >
-              {/* 时间点图标 */}
               <motion.div 
                 className={`w-16 h-16 rounded-full ${phase.color} flex items-center justify-center text-2xl shadow-lg z-10`}
                 whileHover={{ scale: 1.1 }}
@@ -384,7 +401,6 @@ const Timeline = () => {
                 {phase.icon}
               </motion.div>
               
-              {/* 阶段信息 */}
               <div className="ml-8 bg-white rounded-lg shadow-lg p-6 flex-grow hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center justify-between">
                   <div>
@@ -396,7 +412,6 @@ const Timeline = () => {
               </div>
             </div>
 
-            {/* 展开的内容 */}
             {expandedPhase === phaseIndex && (
               <motion.div 
                 className="ml-24 mt-4"
@@ -413,7 +428,6 @@ const Timeline = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: sectionIndex * 0.1 }}
                   >
-                    {/* 子标题 */}
                     <div 
                       className="bg-gray-50 p-4 rounded-lg cursor-pointer flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
                       onClick={() => setExpandedTitle(expandedTitle === `${phaseIndex}-${sectionIndex}` ? null : `${phaseIndex}-${sectionIndex}`)}
@@ -422,7 +436,6 @@ const Timeline = () => {
                       {expandedTitle === `${phaseIndex}-${sectionIndex}` ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                     </div>
 
-                    {/* 展开的详细内容 */}
                     {expandedTitle === `${phaseIndex}-${sectionIndex}` && (
                       <motion.div 
                         className="mt-4 space-y-4"
