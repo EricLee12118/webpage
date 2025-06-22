@@ -26,12 +26,6 @@ export default function Home() {
           <div className="space-y-6">
             <Introduction />
             <TeamMembers />
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-bold text-blue-600 mb-4">
-                Project Progress
-              </h2>
-              <ProgressChart />
-            </div>
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-6">
@@ -41,6 +35,13 @@ export default function Home() {
             <Timeline />
           </div>
         </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold text-blue-600 mb-4">
+                Project Progress
+              </h2>
+              <ProgressChart />
+            </div>
       </main>
 
       <footer className="bg-gray-800 text-white py-4 text-center">
