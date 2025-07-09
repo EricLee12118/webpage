@@ -4,10 +4,10 @@ import { BarChart, Bar, Legend, Tooltip, XAxis, YAxis, CartesianGrid, Responsive
 
 export default function ProgressChart() {
   const data = [
-    { name: 'Frontend', completion: 60 },
-    { name: 'Backend', completion: 60 },
-    { name: 'Deployed', completion: 40 },
-    { name: 'Testing', completion: 40 },
+    { name: 'Frontend', completion: 95 },
+    { name: 'Backend', completion: 95 },
+    { name: 'Deployed', completion: 60 },
+    { name: 'Testing', completion: 80 },
     { name: 'Documentation', completion: 40 }
   ];
 
