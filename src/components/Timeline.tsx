@@ -345,26 +345,34 @@ const timelineData: PhaseData[] = [
             description: "Restructured role assignment algorithm with Node.js. Implemented role skill effect processing system, ensuring skill usage accuracy."
           },
           {
-            text: "Voting and State System (6.17-now)",
+            text: "Voting and State System (6.17-6.25)",
             description: "Integrated Python version voting system and game state management, implemented smoother game flow control. Developed vote result real-time statistics and display functionality, providing more intuitive feedback. Implemented automatic game state progression mechanism, optimizing game pacing."
-          }
+          },
+          {
+            text: "Complete Game Logic (6.26-7.1)",
+            description: "Integrate all core game rules and state transition logic to achieve a complete game process loop. Complete the connection of character skill triggers, night action sequences, and day discussion stages, ensuring that the game state can be accurately restored after disconnection and reconnection. "
+          },
+          {
+            text: "UI ReDesign and Implementation (7.2-now)",
+            description: "Reconstruct the game interface based on interaction to achieve background color switching between day and night.."
+          },
         ]
       },
       {
         title: "Planned Work",
         items: [
           {
-            text: "Complete Game Logic",
-            description: "Plan to enhance game core logic, including special role skills and complex scenario handling. Prepare to add more game modes and rule variants, increasing game playability. Design game balance adjustment mechanism, optimizing game experience based on data analysis."
+            text: "Bug fixing",
+            description: "The following game bugs are planned to be fixed: \n1. There is a problem of duplicate display of game progress notifications on the front end.\n2. After the day and night phase switch, the dead players will not be displayed in real time and will only be shown during the discussion phase.",
           },
           {
-            text: "AI System Upgrade",
-            description: "Plan to upgrade AI decision system, introducing Large Language Model to improve AI intelligence. Prepare to develop AI emotion simulation system, making AI behavior more similar to real players. Design AI difficulty dynamic adjustment mechanism, adapting to different player skill levels."
+            text: "Real AI Interactions",
+            description: "Integrate the API of large language models to achieve dynamic dialogue generation. By integrating redis to remember the dialogue content, the authenticity of the game's confrontation is enhanced"
           },
           {
-            text: "System Optimization",
-            description: "Plan to implement more reliable reconnection mechanism, supporting complete game state recovery. Prepare to optimize server architecture, improving system concurrent processing capability. Design distributed deployment solution, supporting larger scale user access."
-          }
+            text: "Deployment of the project",
+            description: "Planning to deploy the project on the cloud to make it accessible to more people."
+          },
         ]
       }
     ]
@@ -372,7 +380,6 @@ const timelineData: PhaseData[] = [
 ];
 
 const Timeline = () => {
-  // 修正 useState 的类型定义
   const [expandedPhase, setExpandedPhase] = useState<number | null>(null);
   const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
 
